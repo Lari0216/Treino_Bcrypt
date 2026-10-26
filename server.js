@@ -40,6 +40,10 @@ app.post('/login', async (req, res) => {
     if(!isPasswordValid){
         return res.status(401).json({error: "Credenciais Inválidas"})
     }
+    if(nome.trim() === "" || email.trim() === "" || senha.trim() === "" ){ //"situação do código"/remove espaçoso em branco
+        return res.json('Preencha todos os campos')
+    }
+
     res.json("Usuário Logado com Sucesso")
 })
 
